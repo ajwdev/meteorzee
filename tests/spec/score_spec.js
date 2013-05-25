@@ -184,6 +184,14 @@ describe("x_of_a_kind", function() {
 });  
 
 describe("three_of_a_kind", function() {
+  it("should call 'x_of_a_kind' with matches as 3", function() {
+    spyOn(window, 'x_of_a_kind');
+    var dice = [1,1,1,3,4];
+    three_of_a_kind(dice);
+
+    expect(window.x_of_a_kind).toHaveBeenCalledWith(dice, 3);
+  });
+  
   it("should find three of a kind", function() {
     expect(three_of_a_kind([1,1,1,3,4])).toBeGreaterThan(0); 
   });
@@ -205,6 +213,14 @@ describe("three_of_a_kind", function() {
 });  
 
 describe("four_of_a_kind", function() {
+  it("should call 'x_of_a_kind' with matches as 4", function() {
+    spyOn(window, 'x_of_a_kind');
+    var dice = [1,1,1,1,4];
+    four_of_a_kind(dice);
+
+    expect(window.x_of_a_kind).toHaveBeenCalledWith(dice, 4);
+  });
+
   it("should find four of a kind", function() {
     expect(four_of_a_kind([1,1,1,1,4])).toBeGreaterThan(0); 
   });
