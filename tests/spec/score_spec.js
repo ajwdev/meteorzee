@@ -123,7 +123,9 @@ describe("four_of_a_kind", function() {
 
 describe("full_house", function() {
   it("should find a full house", function() {
-    expect(full_house([1,1,2,2,2])).toBeGreaterThan(0);
+    _.each(permutations[SCORE_SECTIONS.full_house], function(hand) {
+      expect(full_house(hand)).toBeGreaterThan(0);
+    });
   });
 
   it("should return a score of zero when not matched", function() {
@@ -141,7 +143,9 @@ describe("full_house", function() {
 
 describe("small straight", function() {
   it("should find a small straight", function() {
-    expect(small_straight([6,1,2,3,4])).toBeGreaterThan(0);
+    _.each(permutations[SCORE_SECTIONS.small_straight], function(hand) {
+      expect(small_straight(hand)).toBeGreaterThan(0);
+    });
   });
 
   it("should return a score of zero when not matched", function() {
@@ -161,8 +165,9 @@ describe("small straight", function() {
 
 describe("large straight", function() {
   it("should find a large straight", function() {
-    expect(large_straight([5,1,2,3,4])).toBeGreaterThan(0);
-    expect(large_straight([6,5,2,3,4])).toBeGreaterThan(0);
+    _.each(permutations[SCORE_SECTIONS.large_straight], function(hand) {
+      expect(large_straight(hand)).toBeGreaterThan(0);
+    });
   });
 
   it("should return a score of zero when not matched", function() {
