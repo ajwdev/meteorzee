@@ -35,6 +35,55 @@ is_lower_section = function(section) {
   return section > SCORE_SECTIONS.sixes ? true : false;
 }
 
+// XXX: This can be cleaned up by finding the method
+// on the window object
+score_hand = function(section, dice) {
+  var score = 0;
+  switch(section) {
+    case SCORE_SECTIONS.ones:
+      score = ones(dice);
+      break;
+    case SCORE_SECTIONS.twos:
+      score = twos(dice);
+      break;
+    case SCORE_SECTIONS.threes:
+      score = threes(dice);
+      break;
+    case SCORE_SECTIONS.fours:
+      score = fours(dice);
+      break;
+    case SCORE_SECTIONS.fives:
+      score = fives(dice);
+      break;
+    case SCORE_SECTIONS.sixes:
+      score = sixes(dice);
+      break;
+    case SCORE_SECTIONS.three_of_a_kind:
+      score = three_of_a_kind(dice);
+      break;
+    case SCORE_SECTIONS.four_of_a_kind:
+      score = four_of_a_kind(dice);
+      break;
+    case SCORE_SECTIONS.full_house:
+      score = full_house(dice);
+      break;
+    case SCORE_SECTIONS.small_straight:
+      score = small_straight(dice);
+      break;
+    case SCORE_SECTIONS.large_straight:
+      score = large_straight(dice);
+      break;
+    case SCORE_SECTIONS.yahtzee:
+      score = yahtzee(dice);
+      break;
+    case SCORE_SECTIONS.chance:
+      score = chance(dice);
+      break;
+  }
+
+  return score;
+};
+
 // *******************************
 // Upper Section 
 // *******************************

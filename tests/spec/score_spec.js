@@ -80,6 +80,18 @@ describe("is_lower_section", function() {
   });
 });  
 
+describe("score_hand", function() {
+  // Ensure case statement calls the right function
+  _.each(SCORE_SECTIONS, function(v,k) {
+    it("should correctly match '" + k.toString() + "' scoring function", function() {
+      spyOn(window, k.toString());
+      score_hand(v,[1,2,3,4,5]);
+
+      expect(window[k.toString()]).toHaveBeenCalled();
+    });
+  });
+});  
+
 describe("upper_section", function() {
   it("should return the sum of dice equal to the specified face", function() {
     hands = {};
