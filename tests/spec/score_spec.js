@@ -38,6 +38,48 @@ describe('validate_dice', function() {
   });
 });
 
+describe("is_upper_section", function() {
+  it("should return true if score section is in the upper section", function() {
+    expect(is_upper_section(SCORE_SECTIONS.ones)).toBe(true);
+    expect(is_upper_section(SCORE_SECTIONS.twos)).toBe(true);
+    expect(is_upper_section(SCORE_SECTIONS.threes)).toBe(true);
+    expect(is_upper_section(SCORE_SECTIONS.fours)).toBe(true);
+    expect(is_upper_section(SCORE_SECTIONS.fives)).toBe(true);
+    expect(is_upper_section(SCORE_SECTIONS.sixes)).toBe(true);
+  });
+
+  it("should return false if score section is in the lower section", function() {
+    expect(is_upper_section(SCORE_SECTIONS.three_of_a_kind)).toBe(false);
+    expect(is_upper_section(SCORE_SECTIONS.four_of_a_kind)).toBe(false);
+    expect(is_upper_section(SCORE_SECTIONS.full_house)).toBe(false);
+    expect(is_upper_section(SCORE_SECTIONS.small_straight)).toBe(false);
+    expect(is_upper_section(SCORE_SECTIONS.large_straight)).toBe(false);
+    expect(is_upper_section(SCORE_SECTIONS.yahtzee)).toBe(false);
+    expect(is_upper_section(SCORE_SECTIONS.chance)).toBe(false);
+  });
+});  
+
+describe("is_lower_section", function() {
+  it("should return true if score section is in the lower section", function() {
+    expect(is_lower_section(SCORE_SECTIONS.ones)).toBe(false);
+    expect(is_lower_section(SCORE_SECTIONS.twos)).toBe(false);
+    expect(is_lower_section(SCORE_SECTIONS.threes)).toBe(false);
+    expect(is_lower_section(SCORE_SECTIONS.fours)).toBe(false);
+    expect(is_lower_section(SCORE_SECTIONS.fives)).toBe(false);
+    expect(is_lower_section(SCORE_SECTIONS.sixes)).toBe(false);
+  });
+
+  it("should return false if score section is in the upper section", function() {
+    expect(is_lower_section(SCORE_SECTIONS.three_of_a_kind)).toBe(true);
+    expect(is_lower_section(SCORE_SECTIONS.four_of_a_kind)).toBe(true);
+    expect(is_lower_section(SCORE_SECTIONS.full_house)).toBe(true);
+    expect(is_lower_section(SCORE_SECTIONS.small_straight)).toBe(true);
+    expect(is_lower_section(SCORE_SECTIONS.large_straight)).toBe(true);
+    expect(is_lower_section(SCORE_SECTIONS.yahtzee)).toBe(true);
+    expect(is_lower_section(SCORE_SECTIONS.chance)).toBe(true);
+  });
+});  
+
 describe("upper_section", function() {
   it("should return the sum of dice equal to the specified face", function() {
     hands = {};

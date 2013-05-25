@@ -27,6 +27,13 @@ group_dice_by_number = function(dice) {
   return _.groupBy(dice, function(v) { return v; });
 };
 
+is_upper_section = function(section) {
+  return section <= SCORE_SECTIONS.sixes ? true : false;
+}
+
+is_lower_section = function(section) {
+  return section > SCORE_SECTIONS.sixes ? true : false;
+}
 
 // *******************************
 // Upper Section 
