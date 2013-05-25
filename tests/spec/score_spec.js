@@ -92,6 +92,33 @@ describe("score_hand", function() {
   });
 });
 
+describe("Dice validation", function() {
+  var dice, bad_dice;
+  beforeEach(function() {
+    spyOn(window, 'validate_dice');
+    ok_dice = [1,2,3,4,5];
+    bad_dice = [null,null,null,null,null];
+  });
+
+  _.each(SCORE_SECTIONS, function(v,k) {
+    describe(k.toString() + " validation", function() {
+      it("should always validate the hand", function() {
+        var result = window[k.toString()](ok_dice);
+        expect(window.validate_dice).toHaveBeenCalledWith(ok_dice);
+        // XXX TODO  I'm not sure why the following is failing but
+        // it shouldnt and we should fix that and then removed the
+        // similiar tests from each describe below
+        //expect(result).not.toBeUndefined();
+      });
+
+      it("should return undefined when an illegal hand is given", function() {
+        var result = window[k.toString()](bad_dice);
+        expect(result).toBeUndefined();
+      });
+    });
+  });
+});
+
 describe("upper_section", function() {
   it("should return the sum of dice equal to the specified face", function() {
     hands = {};
