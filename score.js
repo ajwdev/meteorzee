@@ -58,6 +58,30 @@ upper_section = function(dice, face) {
   return score;
 };
 
+ones = function(dice) {
+  return upper_section(dice, 1);
+};
+
+twos = function(dice) {
+  return upper_section(dice, 2);
+};
+
+threes = function(dice) {
+  return upper_section(dice, 3);
+};
+
+fours = function(dice) {
+  return upper_section(dice, 4);
+};
+
+fives = function(dice) {
+  return upper_section(dice, 5);
+};
+
+sixes = function(dice) {
+  return upper_section(dice, 6);
+};
+
 
 // *******************************
 // Lower Section

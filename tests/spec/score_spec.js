@@ -104,6 +104,55 @@ describe("upper_section", function() {
   });
 });  
 
+describe("upper section shortcut methods", function() {
+  var dice;
+  beforeEach(function() {
+    dice = [1,2,3,4,5];
+    spyOn(window, 'upper_section');
+  });
+
+  describe("ones", function() {
+    it("should call 'upper_section' with dice face of 1", function() {
+      ones(dice);
+      expect(window.upper_section).toHaveBeenCalledWith(dice, 1);
+    });
+  });  
+
+  describe("twos", function() {
+    it("should call 'upper_section' with dice face of 2", function() {
+      twos(dice);
+      expect(window.upper_section).toHaveBeenCalledWith(dice, 2);
+    });
+  });  
+
+  describe("threes", function() {
+    it("should call 'upper_section' with dice face of 3", function() {
+      threes(dice);
+      expect(window.upper_section).toHaveBeenCalledWith(dice, 3);
+    });
+  });  
+
+  describe("fours", function() {
+    it("should call 'upper_section' with dice face of 4", function() {
+      fours(dice);
+      expect(window.upper_section).toHaveBeenCalledWith(dice, 4);
+    });
+  });  
+
+  describe("fives", function() {
+    it("should call 'upper_section' with dice face of 5", function() {
+      fives(dice);
+      expect(window.upper_section).toHaveBeenCalledWith(dice, 5);
+    });
+  });  
+
+  describe("sixes", function() {
+    it("should call 'upper_section' with dice face of 6", function() {
+      sixes(dice);
+      expect(window.upper_section).toHaveBeenCalledWith(dice, 6);
+    });
+  });  
+});  
 
 describe("x_of_a_kind", function() {
   it("should find X number of matches in a hand", function() {
