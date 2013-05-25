@@ -323,7 +323,7 @@ describe("yahtzee", function() {
   });
 });  
 
-describe("change", function() {
+describe("chance", function() {
   it("should correctly score a chance", function() {
     expect(chance([1,3,3,2,6])).toBe(15);
   });
