@@ -85,7 +85,7 @@ score_hand = function(section, dice) {
 };
 
 // *******************************
-// Upper Section 
+// Upper Section
 // *******************************
 
 upper_section = function(dice, face) {
@@ -167,18 +167,18 @@ four_of_a_kind = function(dice) {
   } else if (result) {
     score = _.reduce(dice, function(memo, num) { return memo + num; }, 0);
   }
-  
+
   return score;
 };
 
-full_house = function(dice) { 
+full_house = function(dice) {
   if (!validate_dice(dice))
     return undefined;
 
   var grouped = group_dice_by_number(dice);
   var score = 0;
   if (_.size(grouped) === 2) {
-    // Its only possible to have 2 groups, 
+    // Its only possible to have 2 groups,
     // 3 in one, 2 in the other. Thus lets just
     // check to see if either of the groups are
     // of length of three
@@ -189,7 +189,7 @@ full_house = function(dice) {
   return score;
 };
 
-small_straight = function(dice) { 
+small_straight = function(dice) {
   if (!validate_dice(dice))
     return undefined;
 
@@ -208,7 +208,7 @@ small_straight = function(dice) {
   return score;
 };
 
-large_straight = function(dice) { 
+large_straight = function(dice) {
   if (!validate_dice(dice))
     return undefined;
 

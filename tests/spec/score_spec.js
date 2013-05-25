@@ -27,14 +27,14 @@ describe('validate_dice', function() {
     // Reject dice not equal to five
     expect(validate_dice([1,2])).toBe(false);
     expect(validate_dice([1,2,3,4,5,6])).toBe(false);
-    
+
     // Test one that should work fine
     expect(validate_dice([1,2,3,4,5])).toBe(true);
   });
 
   it("should return undefined with invalid hand", function() {
-    expect(validate_dice([0,0,-1,1,2])).toBe(false); 
-    expect(validate_dice([null], 1)).toBe(false); 
+    expect(validate_dice([0,0,-1,1,2])).toBe(false);
+    expect(validate_dice([null], 1)).toBe(false);
   });
 });
 
@@ -57,7 +57,7 @@ describe("is_upper_section", function() {
     expect(is_upper_section(SCORE_SECTIONS.yahtzee)).toBe(false);
     expect(is_upper_section(SCORE_SECTIONS.chance)).toBe(false);
   });
-});  
+});
 
 describe("is_lower_section", function() {
   it("should return true if score section is in the lower section", function() {
@@ -78,7 +78,7 @@ describe("is_lower_section", function() {
     expect(is_lower_section(SCORE_SECTIONS.yahtzee)).toBe(true);
     expect(is_lower_section(SCORE_SECTIONS.chance)).toBe(true);
   });
-});  
+});
 
 describe("score_hand", function() {
   // Ensure case statement calls the right function
@@ -90,7 +90,7 @@ describe("score_hand", function() {
       expect(window[k.toString()]).toHaveBeenCalled();
     });
   });
-});  
+});
 
 describe("upper_section", function() {
   it("should return the sum of dice equal to the specified face", function() {
@@ -107,14 +107,14 @@ describe("upper_section", function() {
   });
 
   it("should return undefined with invalid hand", function() {
-    expect(upper_section([null], 1)).toBeUndefined(); 
+    expect(upper_section([null], 1)).toBeUndefined();
   });
 
   it("should return undefined with invalid face", function() {
-    expect(upper_section([1,1,1,3,4], 0)).toBeUndefined(); 
-    expect(upper_section([1,1,1,3,4], null)).toBeUndefined(); 
+    expect(upper_section([1,1,1,3,4], 0)).toBeUndefined();
+    expect(upper_section([1,1,1,3,4], null)).toBeUndefined();
   });
-});  
+});
 
 describe("upper section shortcut methods", function() {
   var dice;
@@ -128,49 +128,49 @@ describe("upper section shortcut methods", function() {
       ones(dice);
       expect(window.upper_section).toHaveBeenCalledWith(dice, 1);
     });
-  });  
+  });
 
   describe("twos", function() {
     it("should call 'upper_section' with dice face of 2", function() {
       twos(dice);
       expect(window.upper_section).toHaveBeenCalledWith(dice, 2);
     });
-  });  
+  });
 
   describe("threes", function() {
     it("should call 'upper_section' with dice face of 3", function() {
       threes(dice);
       expect(window.upper_section).toHaveBeenCalledWith(dice, 3);
     });
-  });  
+  });
 
   describe("fours", function() {
     it("should call 'upper_section' with dice face of 4", function() {
       fours(dice);
       expect(window.upper_section).toHaveBeenCalledWith(dice, 4);
     });
-  });  
+  });
 
   describe("fives", function() {
     it("should call 'upper_section' with dice face of 5", function() {
       fives(dice);
       expect(window.upper_section).toHaveBeenCalledWith(dice, 5);
     });
-  });  
+  });
 
   describe("sixes", function() {
     it("should call 'upper_section' with dice face of 6", function() {
       sixes(dice);
       expect(window.upper_section).toHaveBeenCalledWith(dice, 6);
     });
-  });  
-});  
+  });
+});
 
 describe("x_of_a_kind", function() {
   it("should find X number of matches in a hand", function() {
     // No matches
     expect(x_of_a_kind([1,2,3,4,5], 2)).toBe(false);
-    
+
     // Exact matches
     expect(x_of_a_kind([1,2,3,3,4], 2)).toBe(true);
 
@@ -179,9 +179,9 @@ describe("x_of_a_kind", function() {
   });
 
   it("should return undefined with invalid hand", function() {
-    expect(x_of_a_kind([null])).toBeUndefined(); 
+    expect(x_of_a_kind([null])).toBeUndefined();
   });
-});  
+});
 
 describe("three_of_a_kind", function() {
   it("should call 'x_of_a_kind' with matches as 3", function() {
@@ -191,9 +191,9 @@ describe("three_of_a_kind", function() {
 
     expect(window.x_of_a_kind).toHaveBeenCalledWith(dice, 3);
   });
-  
+
   it("should find three of a kind", function() {
-    expect(three_of_a_kind([1,1,1,3,4])).toBeGreaterThan(0); 
+    expect(three_of_a_kind([1,1,1,3,4])).toBeGreaterThan(0);
   });
 
   it("should return a score of zero when not matched", function() {
@@ -208,9 +208,9 @@ describe("three_of_a_kind", function() {
   });
 
   it("should return undefined with invalid hand", function() {
-    expect(three_of_a_kind([null])).toBeUndefined(); 
+    expect(three_of_a_kind([null])).toBeUndefined();
   });
-});  
+});
 
 describe("four_of_a_kind", function() {
   it("should call 'x_of_a_kind' with matches as 4", function() {
@@ -222,7 +222,7 @@ describe("four_of_a_kind", function() {
   });
 
   it("should find four of a kind", function() {
-    expect(four_of_a_kind([1,1,1,1,4])).toBeGreaterThan(0); 
+    expect(four_of_a_kind([1,1,1,1,4])).toBeGreaterThan(0);
   });
 
   it("should return a score of zero when not matched", function() {
@@ -236,9 +236,9 @@ describe("four_of_a_kind", function() {
   });
 
   it("should return undefined with invalid hand", function() {
-    expect(four_of_a_kind([null])).toBeUndefined(); 
+    expect(four_of_a_kind([null])).toBeUndefined();
   });
-});  
+});
 
 describe("full_house", function() {
   it("should find a full house", function() {
@@ -256,9 +256,9 @@ describe("full_house", function() {
   });
 
   it("should return undefined with invalid hand", function() {
-    expect(full_house([null])).toBeUndefined(); 
+    expect(full_house([null])).toBeUndefined();
   });
-});  
+});
 
 describe("small straight", function() {
   it("should find a small straight", function() {
@@ -278,9 +278,9 @@ describe("small straight", function() {
   });
 
   it("should return undefined with invalid hand", function() {
-    expect(small_straight([null])).toBeUndefined(); 
+    expect(small_straight([null])).toBeUndefined();
   });
-});  
+});
 
 describe("large straight", function() {
   it("should find a large straight", function() {
@@ -299,9 +299,9 @@ describe("large straight", function() {
   });
 
   it("should return undefined with invalid hand", function() {
-    expect(large_straight([null])).toBeUndefined(); 
+    expect(large_straight([null])).toBeUndefined();
   });
-});  
+});
 
 describe("yahtzee", function() {
   it("should find a yahtzee", function() {
@@ -319,9 +319,9 @@ describe("yahtzee", function() {
   });
 
   it("should return undefined with invalid hand", function() {
-    expect(yahtzee([null])).toBeUndefined(); 
+    expect(yahtzee([null])).toBeUndefined();
   });
-});  
+});
 
 describe("chance", function() {
   it("should correctly score a chance", function() {
@@ -329,6 +329,6 @@ describe("chance", function() {
   });
 
   it("should return undefined with invalid hand", function() {
-    expect(chance([null])).toBeUndefined(); 
+    expect(chance([null])).toBeUndefined();
   });
-});  
+});
