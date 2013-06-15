@@ -32,7 +32,7 @@ describe('validate_dice', function() {
     expect(validate_dice([1,2,3,4,5])).toBe(true);
   });
 
-  it("should return undefined with invalid hand", function() {
+  it("should return false with invalid hand", function() {
     expect(validate_dice([0,0,-1,1,2])).toBe(false);
     expect(validate_dice([null], 1)).toBe(false);
   });
