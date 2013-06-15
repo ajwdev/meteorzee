@@ -96,7 +96,7 @@ upper_section = function(dice, face) {
   if (!validate_die(face))
     return undefined;
 
-  score = _.reduce(dice, function(memo, num) {
+  var score = _.reduce(dice, function(memo, num) {
     if (num === face) {
       return memo + num;
     } else {

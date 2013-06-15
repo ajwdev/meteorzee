@@ -121,7 +121,7 @@ describe("Dice validation", function() {
 
 describe("upper_section", function() {
   it("should return the sum of dice equal to the specified face", function() {
-    hands = {};
+    var hands = {};
     hands[1] = [1,1,1,3,4];
     hands[2] = [2,2,2,3,4];
     hands[3] = [3,3,3,2,1];
