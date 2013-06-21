@@ -33,6 +33,15 @@ describe('validate_dice', function() {
     expect(validate_dice([0,0,-1,1,2])).toBe(false);
     expect(validate_dice([null], 1)).toBe(false);
   });
+
+  it("should return true on valid hands", function() {
+    // The small straight permuatation is fairly large. Lets
+    // just use that as a fixture. At some point we can maybe
+    // generate the whole list
+    _.each(permutations[SCORE_SECTIONS.small_straight], function(hand) {
+      expect(validate_dice(hand)).toBe(true);
+    });
+  });
 });
 
 describe("is_upper_section", function() {
