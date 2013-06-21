@@ -27,9 +27,6 @@ describe('validate_dice', function() {
     // Reject dice not equal to five
     expect(validate_dice([1,2])).toBe(false);
     expect(validate_dice([1,2,3,4,5,6])).toBe(false);
-
-    // Test one that should work fine
-    expect(validate_dice([1,2,3,4,5])).toBe(true);
   });
 
   it("should return false with invalid hand", function() {
